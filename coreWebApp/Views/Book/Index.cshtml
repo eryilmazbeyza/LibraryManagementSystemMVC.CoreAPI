@@ -1,0 +1,82 @@
+﻿@model List<BookViewModel>
+@{
+    Layout="~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("Index", "Book", FormMethod.Get))
+{
+    <h2>Book</h2>
+    <b>Search By:</b>
+    @Html.RadioButton("SearchBy", "Title", true)
+
+    <text>Title</text>
+    @Html.RadioButton("SearchBy", "Genre", true)
+
+    <text>Genre</text><br>
+    @Html.TextBox("search","", htmlAttributes: new {@class=" w-50 form-control"})
+    <input type="submit" value="Search" class="btn btn-success"/>
+
+    <div class="table">
+        <div class="col-header">
+            @Html.ActionLink("Add Book", "AddBook", null, new { @class = "btn" })
+        </div>
+    </div>
+
+    <div class="table">
+        <div class="header">
+            <div class="col">
+                Title
+            </div>
+            <div class="col">
+                Genre
+            </div>
+            <div class="col">
+                AuthorId
+            </div>
+            <div class="col">
+                PublisherId
+            </div>
+            <div class="col">
+                QuantityInStock
+            </div>
+            <div class="col">
+                Price
+            </div>
+            <div class="col">
+                ISBN
+            </div>          
+            <div class="col">
+                Language
+            </div>
+            <div class="col">
+                PublishedDate
+            </div>           
+            <div class="col">
+                BookImg
+            </div>
+            <div class="col">
+                Actions
+            </div>
+        </div>
+        @foreach(var item in Model)
+        {
+            <div class="row">
+                <div class="col"><span>@item.Title</span></div>
+                <div class="col"><span>@item.Genre</span></div>
+                <div class="col"><span>@item.AuthorId</span></div>
+                <div class="col"><span>@item.PublisherId</span></div>
+                <div class="col"><span>@item.QuantityInStock</span></div>
+                <div class="col"><span>@item.Price</span></div>
+                <div class="col"><span>@item.ISBN</span></div>
+                <div class="col"><span>@item.Language</span></div>
+                <div class="col"><span>@item.PublishedDate</span></div>
+                <div class="col"><span>@item.BookImg</span></div>
+                <div class="col">
+                    @Html.ActionLink("Edit", "EditBook", new { id = item.BookId })
+                    @Html.ActionLink("Delete", "DeleteBook", new { id = item.BookId })
+                </div>
+            </div>
+        }
+    </div>
+}
+
+

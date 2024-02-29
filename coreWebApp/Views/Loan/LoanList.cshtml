@@ -1,0 +1,38 @@
+﻿@model IEnumerable<coreWebApp.Models.LoanViewModel>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>List Loan</h2>
+<div class="table">
+    <div class="header">
+        <div class="col">
+            UserId
+        </div>
+        <div class="col">
+            BookId
+        </div>
+        <div class="col">
+            AdminId
+        </div>
+        <div class="col">
+            BorrowDate
+        </div>
+        <div class="col">
+            ReturnDate
+        </div>
+    </div>
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col"><span>@item.UserId</span></div>
+            <div class="col"><span>@item.BookId</span></div>
+            <div class="col"><span>@item.AdminId</span></div>
+            <div class="col"><span>@item.BorrowDate</span></div>
+            <div class="col"><span>@item.ReturnDate</span></div>
+        </div>
+    }
+</div>
+
+

@@ -1,0 +1,55 @@
+﻿@model List<BookViewModel>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>List Book</h2>
+<div class="table">
+    <div class="header">
+        <div class="col">
+            Title
+        </div>
+        <div class="col">
+            Genre
+        </div>
+        <div class="col">
+            AuthorId
+        </div>
+        <div class="col">
+            PublisherId
+        </div>
+        <div class="col">
+            QuantityInStock
+        </div>
+        <div class="col">
+            Price
+        </div>
+        <div class="col">
+            ISBN
+        </div>
+        <div class="col">
+            Language
+        </div>
+        <div class="col">
+            PublishedDate
+        </div>
+        <div class="col">
+            BookImg
+        </div>
+    </div>
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col"><span>@item.Title</span></div>
+            <div class="col"><span>@item.Genre</span></div>
+            <div class="col"><span>@item.AuthorId</span></div>
+            <div class="col"><span>@item.PublisherId</span></div>
+            <div class="col"><span>@item.QuantityInStock</span></div>
+            <div class="col"><span>@item.Price</span></div>
+            <div class="col"><span>@item.ISBN</span></div>
+            <div class="col"><span>@item.Language</span></div>
+            <div class="col"><span>@item.PublishedDate</span></div>
+            <div class="col"><span>@item.BookImg</span></div>
+        </div>
+    }
+</div>

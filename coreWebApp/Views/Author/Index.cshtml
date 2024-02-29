@@ -1,0 +1,36 @@
+﻿@model IEnumerable<coreWebApp.Models.AuthorViewModel>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Author</h2>
+<div class="table">
+    <div class="col-header">
+        @Html.ActionLink("Add Author", "AddAuthor")
+    </div>
+</div>
+<div class="table">
+    <div class="header">
+        <div class="col">
+            AuthorId
+        </div>
+        <div class="col">
+            AuthorName
+        </div>
+        <div class="col">
+            Actions
+        </div>
+    </div>
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col"><span>@item.AuthorId</span></div>
+            <div class="col"><span>@item.AuthorName</span></div>
+            <div class="col">
+                @Html.ActionLink("Edit", "EditAuthor", new { id = item.AuthorId })
+                @Html.ActionLink("Delete", "DeleteAuthor", new { id = item.AuthorId })
+            </div>
+        </div>
+    }
+</div>

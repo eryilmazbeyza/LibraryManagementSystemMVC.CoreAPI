@@ -1,0 +1,47 @@
+﻿@model IEnumerable<coreWebApp.Models.UserViewModel>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Registration</h2>
+<div class="table">
+    <div class="col-header">
+        @Html.ActionLink("Registation", "UserRegistration")
+    </div>
+</div>
+<div class="table">
+    <div class="header">
+        <div class="col">
+            UserId
+        </div>
+        <div class="col">
+            FirstName
+        </div>
+        <div class="col">
+            LastName
+        </div>
+        <div class="col">
+            Username
+        </div>
+        <div class="col">
+            Password
+        </div>
+        <div class="col">
+            RegistrationDate
+        </div>
+    </div>
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col"><span>@item.UserId</span></div>
+            <div class="col"><span>@item.FirstName</span></div>
+            <div class="col"><span>@item.LastName</span></div>
+            <div class="col"><span>@item.Username</span></div>
+            <div class="col"><span>@item.Password</span></div>
+            <div class="col"><span>@item.RegistrationDate</span></div>
+        </div>
+    }
+
+</div>
+

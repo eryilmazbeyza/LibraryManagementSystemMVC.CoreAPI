@@ -1,0 +1,36 @@
+﻿@model IEnumerable<coreWebApp.Models.PublisherViewModel>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Publisher</h2>
+<div class="table">
+    <div class="col-header">
+        @Html.ActionLink("Add Publisher", "AddPublisher")
+    </div>
+</div>
+<div class="table"> 
+    <div class="header">
+        <div class="col">
+            PublisherId
+        </div>
+        <div class="col">
+            PublisherName
+        </div>
+        <div class="col">
+            Actions
+        </div>
+    </div>
+    @foreach (var item in Model)
+    {
+        <div class="row">
+            <div class="col"><span>@item.PublisherId</span></div>
+            <div class="col"><span>@item.PublisherName</span></div>
+            <div class="col">
+                @Html.ActionLink("Edit", "EditPublisher", new { id = item.PublisherId })
+                @Html.ActionLink("Delete", "DeletePublisher", new { id = item.PublisherId })
+            </div>
+        </div>
+    }
+</div>
